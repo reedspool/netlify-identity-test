@@ -1,0 +1,9 @@
+#+title: Run the simulation in your terminal
+* Usage
+
+1. If you haven't yet, run =npm initialize= from the repository root to recursively install all dependencies
+2. Run =npm run build= to produce the =dist/= directory
+
+* Development Usage
+
+TBD - Use Netlify's development setup for Netlify Functions.

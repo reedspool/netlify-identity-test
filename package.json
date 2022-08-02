@@ -1,0 +1,23 @@
+{
+  "name": "netlify-identity-fauna",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "initialize": "npm install && npm run all:install",
+    "all:install": "npm-recursive-install",
+    "dev:functions:serve": "env-cmd -f .env.dev netlify functions:serve",
+    "dev:all:serve": "env-cmd -f .env.dev netlify dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "recursive-install": "^1.4.0",
+    "netlify-cli": "^8.19.3",
+    "env-cmd": "^10.1.0"
+  }
+}

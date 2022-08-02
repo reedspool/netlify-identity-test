@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Test page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+            your experience.
+            </p>
+        <![endif]-->
+
+        <h1>Test page</h1>
+
+        <p>This is a test page. The goal of this project is to establish a path to Netlify Identity Authentication in Netlify Edge Functions.</p>
+
+        <p>At the moment, all this page does is confirm that a "hello world" Netlify Function works by fetching it into the div below:</p>
+
+        <div
+            hx-get="/.netlify/functions/hello"
+            hx-trigger="load"
+        >
+            Loading...
+        </div>
+
+        <script src="https://demo.htmx.org"></script>
+    </body>
+</html>

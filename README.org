@@ -1,0 +1,58 @@
+#+title: Netlify Identity Concept
+
+* Technologies
+
+- htmx
+- Typescript
+  - [[https://blog.logrocket.com/make-sharing-typescript-code-types-quick-easy][Following this setup]]
+- Node
+- Netlify
+  - Identity
+  - Edge Functions
+  - Static site hosting
+
+* Directory Structure
+
+** =app/=
+Contains different applications
+
+*** =app/netlify-functions/=
+The directory from which Netlify will load the available Edge Functions. This is not the default directory location, it's configured in =netlify.toml=.
+
+*** =app/site/=
+Where the static site will be built and deployed by Netlify. This location is configured in =netlify.toml=
+
+** =lib/=
+Contains isolated libraries with no stand-alone use
+
+** =package.json=
+Top level NPM configuration
+
+** =netlify.toml=
+Netlify Configuration
+
+* Development Setup
+
+1. Clone this git repository
+2. Run =npm run initialize= to recursively install all dependencies
+3. Run =npx netlify login=
+
+* Development Environment
+
+1. Run =npm run dev:all:serve=. See below for more details
+
+* NPM Scripts
+
+** =npm run initialize=
+Initialize the entire repository's NPM dependencies. Because there are multiple =package.json= files throughout the repository, a simple =npm install= will not be sufficient. First, this script runs =npm install= to install the top-level dependencies. Then, it runs =npm run all:install=
+
+** =npm run all:install=
+Runs =npm-recursive-install= from the =recursive-install= NPM package. This is the equivalent of running =npm install= wherever there is a package.json file in the directory structure.
+
+** =npm run dev:functions:serve=
+Serve Edge Functions locally using [[https://cli.netlify.com/netlify-dev][Netlify's CLI]]. The server will rebuild automatically on file changes.
+
+** =npm run dev:all:serve=
+Serve ALL Netlify dev resources locally using [[https://cli.netlify.com/netlify-dev][Netlify's CLI]]. Right now, that is just the static site and the Edge Functions.
+
+Most file changes will automatically update the local resources. No hot reloading, so you will need to refresh your browser.
