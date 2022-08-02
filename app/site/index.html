@@ -24,7 +24,7 @@
 
         <p>This is a test page. The goal of this project is to establish a path to Netlify Identity Authentication in Netlify Edge Functions.</p>
 
-        <p>At the moment, all this page does is confirm that a "hello world" Netlify Function works by fetching it into the div below:</p>
+        <p>First, this page confirms that a "hello world" Netlify Function works by fetching it into the div below:</p>
 
         <div
             hx-get="/.netlify/functions/hello"
@@ -33,6 +33,11 @@
             Loading...
         </div>
 
+        <p>Next, the Netlify Identity widget. You should be able to sign up or log in below:</p>
+
+        <div data-netlify-identity-menu></div>
+
         <script src="https://demo.htmx.org"></script>
+        <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     </body>
 </html>
