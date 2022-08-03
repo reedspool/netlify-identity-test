@@ -1,0 +1,21 @@
+{
+  "name": "fauna",
+  "version": "1.0.0",
+  "description": "",
+  "main": "initialize_local_fauna.js",
+  "scripts": {
+    "dev:fauna:pull": "docker pull fauna/faunadb:latest",
+    "dev:fauna:run": "docker-compose -f docker-compose-local-fauna.yml up",
+    "dev:fauna:init": "env-cmd -f ../../.env.dev node ./scripts/initialize_local_fauna.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faunadb": "^4.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.3",
+    "env-cmd": "^10.1.0"
+  }
+}

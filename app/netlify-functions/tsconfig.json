@@ -3,6 +3,9 @@
   "references": [
       {
           "path": "../../lib/netlify-function-utilities"
+      },
+      {
+          "path": "../../lib/fauna"
       }
   ],
   "compilerOptions": {

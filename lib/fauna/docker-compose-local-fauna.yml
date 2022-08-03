@@ -1,0 +1,15 @@
+# Local Dev Fauna Server
+version: '2'
+services:
+  fauna:
+    image: fauna/faunadb
+    container_name: fauna-netlify-identity-experiment
+    ports:
+      - 8543:8443
+      - 8184:8084
+    volumes:
+      - ./docker-volumes/fauna-data:/var/lib/faunadb
+      - ./docker-volumes/fauna-logs:/var/log/faunadb
+configs:
+  faunadb_local:
+    file: ./faunadb-local-config.yml

@@ -66,6 +66,21 @@
             Loading...
         </div>
 
+        <p>Finally, we test persistence. Right now this form should just echo whatever you send</p>
+
+        <form hx-post="/.netlify/functions/setName" hx-target="#output" hx-ext='json-enc'>
+            <label>
+                Name:
+                <input type="text" name="name" value="" placeholder="Waymond" />
+            </label>
+
+            <input type="submit" name="submit" value="Submit" />
+        </form>
+
+        <div id="output">
+            Send form above to see the value reflected here
+        </div>
+
         <script type="text/javascript">
             document.body.addEventListener(
                 'htmx:configRequest',
@@ -74,7 +89,27 @@
                         `Bearer ${window.netlifyIdentity.currentUser().token.access_token}`;
                 });
         </script>
+
         <script src="https://demo.htmx.org"></script>
         <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <script type="text/javascript">
+            // Literally including the json-enc htmx extension source because it's simple
+            document.body.addEventListener(
+                "htmx:load",
+                function () {
+                    htmx.defineExtension('json-enc', {
+                        onEvent: function (name, evt) {
+                            if (name === "htmx:configRequest") {
+                                evt.detail.headers['Content-Type'] = "application/json";
+                            }
+                        },
+
+                        encodeParameters : function(xhr, parameters, elt) {
+                            xhr.overrideMimeType('text/json');
+                            return (JSON.stringify(parameters));
+                        }
+                    });
+                });
+        </script>
     </body>
 </html>

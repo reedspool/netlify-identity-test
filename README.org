@@ -1,7 +1,6 @@
 #+title: Netlify Identity Concept
 
 * Technologies
-
 - htmx
 - Typescript
   - [[https://blog.logrocket.com/make-sharing-typescript-code-types-quick-easy][Following this setup]]
@@ -12,7 +11,6 @@
   - Static site hosting
 
 * Directory Structure
-
 ** =app/=
 Contains different applications
 
@@ -32,17 +30,16 @@ Top level NPM configuration
 Netlify Configuration
 
 * Development Setup
-
 1. Clone this git repository
 2. Run =npm run initialize= to recursively install all dependencies
-3. Run =npx netlify login=
+3. Run =npx netlify login= to log in to Netlify CLI
+4. Make a copy of =.env.dev.example= named =.env.dev=
+5. Open =lib/fauna/README.org= and follow the Development Setup steps there
 
 * Development Environment
-
 1. Run =npm run dev:all:serve=. See below for more details
 
 * NPM Scripts
-
 ** =npm run initialize=
 Initialize the entire repository's NPM dependencies. Because there are multiple =package.json= files throughout the repository, a simple =npm install= will not be sufficient. First, this script runs =npm install= to install the top-level dependencies. Then, it runs =npm run all:install=
 

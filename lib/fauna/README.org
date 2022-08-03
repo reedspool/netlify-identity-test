@@ -1,0 +1,17 @@
+#+title: Library for Fauna usage
+
+* Development Setup
+1. Run =npm run dev:fauna:pull= to pull the latest FaunaDB Docker container
+2. Run =npm run dev:fauna:run= to run the dev server
+3. In another terminal, while the dev server is running, run =npm run dev:fauna:init= to initialize the Fauna schema
+4. In the =.env.dev= file in the root directory, ensure the =FAUNADB_SECRET= value matches the =auth_root_key= value in =./faunadb-local-config.yml=
+
+* NPM Scripts
+** =npm run dev:fauna:pull=
+Pull the latest =fauna/faunadb= Docker container from the Docker Hub. You should only need to do this once, unless you want the latest for your own purposes.
+
+** =npm run dev:fauna:init=
+Run the initialization setup for the local Fauna dev server. NOTE: You must be running =npm run dev:fauna:run= while you do this so that the script can connect to the server. You should only need to do this once, unless you update the schema or destroy the Docker image.
+
+** =npm run dev:fauna:run=
+Run the local Fauna dev server via Docker Compose.

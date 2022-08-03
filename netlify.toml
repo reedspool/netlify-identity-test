@@ -27,5 +27,4 @@
   # a base hasn’t been set.
   directory = "../netlify-functions/src"
 
-  included_files = ["../../../lib/netlify-function-utilities/src/*"]
-
+  included_files = ["../../../lib/netlify-function-utilities/src/*", "../../../lib/fauna/src/*"]
