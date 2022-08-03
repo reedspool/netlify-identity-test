@@ -1,5 +1,5 @@
 import { Handler } from "@netlify/functions";
-import { htmxHeaders } from "../../../lib/netlify-function-utilities/src/headers"
+import { htmxHeaders } from "lib/netlify-function-utilities/src/headers"
 
 export const handler: Handler = async (event, context) => {
     return {
