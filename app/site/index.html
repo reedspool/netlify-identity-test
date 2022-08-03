@@ -11,7 +11,19 @@
         <!-- Place favicon.ico in the root directory -->
 
     </head>
-    <body>
+    <body
+        _="
+           on fetch:beforeRequest(headers)
+             set headers['Authorization'] to `Bearer ${window.netlifyIdentity.currentUser().token.access_token}`
+
+    -- Re-implementing this in JavaScript instead because of a timing issue where this event
+    -- handler does not appear to be registered by the time htmx 'load' things happen
+    -- A possible solution is to trade all hx-trigger='load' for a custom event e.g.
+    -- hx-trigger='authReady' and broadcast that event here, in an init block.
+    -- Maybe would need a `wait a tick` too, because init might run before these are registered
+    --     on htmx:configRequest(detail)
+    --       set detail.headers['Authorization'] to `Bearer ${window.netlifyIdentity.currentUser().token.access_token}`
+           ">
         <!--[if lt IE 8]>
             <p class="browserupgrade">
             You are using an <strong>outdated</strong> browser. Please
@@ -24,7 +36,7 @@
 
         <p>This is a test page. The goal of this project is to establish a path to Netlify Identity Authentication in Netlify Edge Functions.</p>
 
-        <p>First, this page confirms that a "hello world" Netlify Function works by fetching it into the div below:</p>
+        <p>First, this page confirms that a "hello world" Netlify Function works by fetching it into the <code>div</code> below:</p>
 
         <div
             hx-get="/.netlify/functions/hello"
@@ -37,6 +49,31 @@
 
         <div data-netlify-identity-menu></div>
 
+        <p>Next, I will check whether I can accurately confirm the logged-in status via a request to a Netlify Edge Function. The following <code>div</code> should say "yes" if the above Netlify Identity Widget shows "signed in." It should say "no" otherwise.</p>
+
+        <p>Note: This won't, at the moment, update automatically after signing in or signing out, so you'll need to reload the page.</p>
+
+        <div _="on load fetch /.netlify/functions/authCheck then put the result into me">
+            Loading...
+        </div>
+
+        <p>Now, the same thing but using htmx instead of hyperscript:</p>
+
+        <div
+            hx-get="/.netlify/functions/authCheck"
+            hx-trigger="load"
+            >
+            Loading...
+        </div>
+
+        <script type="text/javascript">
+            document.body.addEventListener(
+                'htmx:configRequest',
+                function(event) {
+                    event.detail.headers['Authorization'] =
+                        `Bearer ${window.netlifyIdentity.currentUser().token.access_token}`;
+                });
+        </script>
         <script src="https://demo.htmx.org"></script>
         <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     </body>
