@@ -7,7 +7,6 @@
     "lib": "lib"
   },
   "scripts": {
-    "prebuild": "npm run all:install",
     "initialize": "npm install && npm run all:install",
     "all:install": "npm-recursive-install",
     "dev:functions:serve": "env-cmd -f .env.dev netlify functions:serve",
