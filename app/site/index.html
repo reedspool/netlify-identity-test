@@ -68,7 +68,7 @@
 
         <p>Finally, we test persistence. Right now this form should just echo whatever you send</p>
 
-        <form hx-post="/.netlify/functions/setName" hx-target="#output" hx-ext='json-enc'>
+        <form hx-post="/.netlify/functions/setName" hx-target="#output-set-name" hx-ext='json-enc'>
             <label>
                 Name:
                 <input type="text" name="name" value="" placeholder="Waymond" />
@@ -77,7 +77,7 @@
             <input type="submit" name="submit" value="Submit" />
         </form>
 
-        <div id="output">
+        <div id="output-set-name">
             Send form above to see the value reflected here
         </div>
 
