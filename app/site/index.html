@@ -81,6 +81,17 @@
             Send form above to see the value reflected here
         </div>
 
+        <div>
+            <button
+                hx-post="/.netlify/functions/getName"
+                hx-target="#output-get-name"
+            >Get name</button>
+        </div>
+
+        <div id="output-get-name">
+            Click button above to get your name
+        </div>
+
         <script type="text/javascript">
             document.body.addEventListener(
                 'htmx:configRequest',
