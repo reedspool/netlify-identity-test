@@ -17,6 +17,16 @@ export const responseOk: MyOptionalResponseFunction = (response = responseOkDefa
     return { ...responseOkDefault, ...response } as Response;
 }
 
+const responseUserErrorDefault: Response = {
+    ...responseOkDefault,
+    statusCode: 400,
+    body: "Faulty request :-/"
+}
+export const responseUserError: MyOptionalResponseFunction = (response = responseUserErrorDefault) => {
+    if (response === responseUserErrorDefault) return responseUserErrorDefault;
+    return { ...responseUserErrorDefault, ...response } as Response;
+}
+
 const responseErrorDefault: Response = {
     ...responseOkDefault,
     statusCode: 500,
