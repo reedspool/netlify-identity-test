@@ -8,7 +8,7 @@ if (!SECRET) throw new Error(
 export const IS_DEVELOPMENT = process.env.NODE_ENV === "development";
 
 export const createLocalFaunaClient = () => new faunadb.Client({
-    secret: 'secret', // From faunadb-local-config.yml, "auth_root_key" value
+    secret: SECRET, // From faunadb-local-config.yml, "auth_root_key" value
     domain: 'localhost',
     port: 8543,
     scheme: 'http',

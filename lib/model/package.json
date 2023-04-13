@@ -1,10 +1,10 @@
 {
-  "name": "fauna",
-  "version": "1.0.0",
-  "description": "",
-  "main": "initialize_local_fauna.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "model",
+    "version": "1.0.0",
+    "description": "",
+    "main": "initialize_local_fauna.js",
+    "scripts": {},
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
 }

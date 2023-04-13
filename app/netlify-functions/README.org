@@ -1,4 +1,5 @@
-#+title: Run the simulation in your terminal
+#+title: Netlify Functions
+
 * Usage
 
 1. If you haven't yet, run =npm initialize= from the repository root to recursively install all dependencies

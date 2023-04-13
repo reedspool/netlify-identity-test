@@ -22,4 +22,5 @@ dist/
 # Netlify build stuff
 .netlify/
 
+# Hide local docker volumes
 docker-volumes/
